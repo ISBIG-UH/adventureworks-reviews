@@ -333,4 +333,4 @@ for stores, products, review_method in [(tech_stores, tech_products, generate_te
 
 
 user_reviews_df = pd.DataFrame(user_reviews)
-user_reviews_df.to_csv('data/output/user_reviews.csv', index=False)
+user_reviews_df.to_csv('data/output/reviews.csv', index=False)
