@@ -31,7 +31,8 @@ def generate_users_schema():
         persons.append({'id': c, 'firstName': firstName, 'lastName': lastName, 'email': email, 'birthdate': date.strftime('%d/%m/%Y') })
         c += 1
 
-    return persons
+    users_df = pd.DataFrame(persons)
+    users_df.to_csv('data/output/users.csv', index=False)
 
 
 
