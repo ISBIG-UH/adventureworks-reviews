@@ -119,6 +119,116 @@ clothing_products = [
 "Matching Track Set","Hoodie and Jogger Set","Cotton Pajama Set","Silk Nightgown","Bathrobe"
 ]
 
+bike_products = [
+    # Bicycles (Types & Models)
+    "Trek Marlin 7",
+    "Specialized Rockhopper",
+    "Cannondale Trail SE",
+    "Giant Talon 2",
+    "Scott Aspect 950",
+    "Santa Cruz Chameleon",
+    "Orbea Alma M50",
+    "Canyon Spectral 125",
+    "Kona Fire Mountain",
+    "Diamondback Overdrive",
+    "Pivot Mach 4 SL",
+    "Salsa Timberjack",
+    "Yeti ARC",
+    "Ghost Kato 5",
+    "GT Avalanche Comp",
+    "BMC Fourstroke",
+    "Marin Bobcat Trail",
+    "Norco Fluid FS",
+    "Merida Big Nine 300",
+    "Ibis Ripley AF",
+
+    # Bike Components
+    "Shimano Deore XT Rear Derailleur",
+    "SRAM GX Eagle Cassette",
+    "Shimano Ultegra Crankset",
+    "SRAM Red AXS Chain",
+    "Race Face Aeffect Pedals",
+    "Shimano Dura-Ace Brake Calipers",
+    "SRAM XX1 Chainring",
+    "Shimano SLX Shifter",
+    "FSA Gossamer Stem",
+    "Chris King Headset",
+    "DT Swiss M1700 Wheelset",
+    "Maxxis Minion DHF Tire",
+    "Continental Grand Prix 5000 Tire",
+    "Schwalbe Racing Ralph Tire",
+    "WTB Volt Saddle",
+    "Brooks B17 Saddle",
+    "Ergon GP3 Grips",
+    "Jagwire Pro Brake Cable Kit",
+    "Hope Tech 4 V4 Disc Brakes",
+
+    # Accessories
+    "Lezyne Classic Floor Drive Pump",
+    "Topeak JoeBlow Sport Pump",
+    "CamelBak M.U.L.E. Hydration Pack",
+    "Specialized Air Tool Pump",
+    "Bontrager Ion 200 RT Light",
+    "Knog Blinder Mini Light",
+    "Garmin Edge 530 GPS",
+    "Wahoo Elemnt Bolt GPS",
+    "Cateye Velo Wireless Computer",
+    "Quad Lock Phone Mount",
+    "Park Tool Chain Checker",
+    "Feedback Sports Bike Stand",
+    "Pedro's Chain Lube",
+    "Muc-Off Bike Cleaner",
+    "Finish Line Wet Chain Lube",
+    "Park Tool Tire Levers",
+    "Crankbrothers Multi-Tool",
+    "Topeak Alien II Multi-Tool",
+    "Elite Fly Water Bottle",
+    "Tacx Ciro Bottle Cage",
+
+    # Clothing & Safety Gear
+    "Giro Syntax MIPS Helmet",
+    "Bell Super Air R Helmet",
+    "POC Tectal Race Helmet",
+    "Specialized Align II Helmet",
+    "Giro Empire Shoes",
+    "Shimano RC7 Shoes",
+    "Five Ten Freerider Pro Shoes",
+    "Pearl Izumi Quest Jersey",
+    "Castelli Aero Race Jersey",
+    "Fox Ranger Shorts",
+    "Endura Hummvee Shorts",
+    "Gore Wear C5 Gloves",
+    "Specialized Body Geometry Gloves",
+    "Pearl Izumi Elite Gel Gloves",
+    "Assos Mille GT Bib Shorts",
+    "Rapha Classic Bib Shorts",
+    "Oakley Radar EV Sunglasses",
+    "Smith Wildcat Sunglasses",
+    "100% Speedcraft Sunglasses",
+    "POC Devour Sunglasses",
+
+    # Maintenance & Tools
+    "Park Tool Repair Stand",
+    "Feedback Sports Pro Elite Stand",
+    "Pedro's Pedal Wrench",
+    "Park Tool Cassette Lockring Tool",
+    "Shimano Bleed Kit",
+    "SRAM Bleed Kit",
+    "Finish Line Grease",
+    "Park Tool Chain Whip",
+    "Pedro's Y-Wrench",
+    "Crankbrothers Mini Pump",
+    "Lezyne CO2 Inflator",
+    "Park Tool Torque Wrench",
+    "Topeak SmartGauge D2",
+    "Park Tool Bottom Bracket Tool",
+    "Muc-Off Disc Brake Cleaner",
+    "Finish Line Super Bike Wash",
+    "Stan's NoTubes Sealant",
+    "Orange Seal Tubeless Sealant",
+    "Park Tool P-Handle Hex Set",
+    "Feedback Sports Rotor Truing Fork"
+]
 
 
 
@@ -140,65 +250,12 @@ class RandomRating:
         weights.append(limit)
         return [w / 100 for w in weights]
     
-
-    def __str__(self):
-        return str(self.weights)
-    
-    def __repr__(self):
-        return self.__str__()
-
-
-def generate_bike_review_text(rating: int):
-    
-# Some review templates
-    positive_templates = [
-        "This {bike_type} is incredibly {adj}. I've been riding it for {time} and it {verb} perfectly.",
-        "Absolutely love this bike! The {part} is very {adj}, making long rides much more {feeling}.",
-        "Fantastic purchase. It's lightweight, {adj}, and the {part} works better than I expected."
-    ]
-
-    neutral_templates = [
-        "The bike is {adj}, but the {part} could be better. Overall it's {feeling}.",
-        "Not bad for the price. It {verb}, but I had to adjust the {part} after assembly.",
-        "It works fine for {time}, though I wish the {part} was more {adj}."
-    ]
-
-    negative_templates = [
-        "Pretty disappointed. The {part} felt {adj} and it wasn't very {feeling}.",
-        "The {part} broke after only {time}. Definitely not worth the money.",
-        "Uncomfortable and {adj}. The {part} makes long rides very {feeling}."
-    ]
-
-    bike_types = ["mountain bike", "road bike", "city bike", "hybrid bike", "BMX"]
-    parts = ["brakes", "gears", "suspension", "seat", "frame"]
-    adjectives = ["smooth", "sturdy", "uncomfortable", "flimsy", "reliable", "heavy"]
-    feelings = ["fun", "frustrating", "comfortable", "annoying", "enjoyable"]
-    verbs = ["handles", "performs", "rides", "works"]
-    times = ["a few days", "two weeks", "a month", "the whole season", "a year"]
-
-
-    if rating >= 4:
-        template = random.choice(positive_templates)
-    elif rating == 3:
-        template = random.choice(neutral_templates)
-    else:
-        template = random.choice(negative_templates)
-    
-    review_text = template.format(
-        bike_type=random.choice(bike_types),
-        part=random.choice(parts),
-        adj=random.choice(adjectives),
-        feeling=random.choice(feelings),
-        verb=random.choice(verbs),
-        time=random.choice(times)
-    )
-    
-    return review_text
-
+bike_stores_df = pd.read_csv('data/input/stores.csv')
+bike_stores = list(bike_stores_df['storeName'])
 
 products_df = pd.read_csv('data/input/products.csv')
 
-products = list(products_df['Name']) + tech_products + clothing_products
+products = list(products_df['Name']) + tech_products + clothing_products + bike_products
 products_random_ratings = {p: RandomRating() for p in products }
 
 
@@ -259,69 +316,7 @@ sales_by_store_df.apply(apply_get_review_to_sales_by_store, axis=1)
 
 
 
-def generate_clothing_review_text(rating: int):
-    
-# Some review templates
-    positive_templates = [
-        "I absolutely love the product, fits perfectly and looks amazing!",
-        "The product exceeded my expectations, very comfortable and stylish!",
-        "product is fantastic! I get compliments every time I wear it."
-    ]
-
-    neutral_templates = [
-        "The product is okay, nothing special.",
-        "It's an average product, not bad but not great either.",
-        "The product is decent, but I expected a bit more quality."
-    ]
-
-    negative_templates = [
-        "I am disappointed with the product, not worth the price.",
-        "The product quality is poor and it does not fit well.",
-        "Totally unhappy with the product, will not buy again."
-    ]
-
-
-    if rating >= 4:
-        template = random.choice(positive_templates)
-    elif rating == 3:
-        template = random.choice(neutral_templates)
-    else:
-        template = random.choice(negative_templates)
-    
-    return template
-
-
-def generate_tech_review_text(rating: int):
-
-    positive_templates = [
-        "I absolutely love the product, it works flawlessly and is very reliable!",
-        "The product exceeded my expectations, very efficient and user-friendly!",
-        "The product is fantastic! Great performance and excellent value."
-    ]
-
-    neutral_templates = [
-        "The product is okay, does the job but nothing extraordinary.",
-        "It's an average product, neither bad nor outstanding.",
-        "The product works as expected, but I hoped for a bit more features."
-    ]
-
-    negative_templates = [
-        "I am disappointed with the product, it stopped working quickly.",
-        "The product has poor performance and feels cheap.",
-        "Totally unhappy with the product, I would not recommend it."
-    ]
-
-
-    if rating >= 4:
-        template = random.choice(positive_templates)
-    elif rating == 3:
-        template = random.choice(neutral_templates)
-    else:
-        template = random.choice(negative_templates)
-    
-    return template
-
-for stores, products, review_method in [(tech_stores, tech_products, generate_tech_review_text), (clothing_stores, clothing_products ,generate_clothing_review_text)]:
+for stores, products in [(bike_stores, bike_products), (tech_stores, tech_products), (clothing_stores, clothing_products)]:
     for s in tqdm(stores):
         storeid = stores_id_map[s]
         random_products = random.choices(products, k=random.randint(1, 100))
